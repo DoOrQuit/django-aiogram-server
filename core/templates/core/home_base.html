@@ -1,0 +1,36 @@
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'core/css/home_base.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}">
+    {% block head %}{% endblock head %}
+    <title>{% block title %}Home{% endblock title %}</title>
+</head>
+<body>
+    {% include 'core/navbar.html' %}
+    <h1>Overview /</h1>
+    <section class="overview">
+        <article class="next-events">
+            <h3>Closest events: </h3>
+            {% for event in closest_events %}
+    <b><span style="float: right">{{ event.date }}</span></b>
+    {% for time in event.time %}
+        <div class="event">
+            <div class="event-top-section">
+                <span style="border-right: 1px solid ghostwhite; padding-right: 10px"><b>{{ time }}</b></span>
+                <span>Customer</span>
+            </div>
+            <div class="event-bottom-section">
+                <p>I want to fix the nail broken</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endfor %}
+        </article>
+    </section>
+</body>
+</html>
