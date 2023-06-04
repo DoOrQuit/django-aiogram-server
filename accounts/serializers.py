@@ -17,6 +17,7 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "password",
             "email",
+            "telegram_id",
             "created_at",
             "updated_at"
         )
