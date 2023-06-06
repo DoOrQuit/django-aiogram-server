@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, get_user_model
+from django.contrib.auth import authenticate, login, get_user_model, logout
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -64,3 +64,8 @@ def registration_view(request):
             print("No")
             return render(request, "accounts/registration.html")
     return render(request, "accounts/registration.html")
+
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse('accounts:login'))
