@@ -8,7 +8,7 @@ from core.services import GoogleCalendar
 
 
 def home_page_view(request):
-    calendar = GoogleCalendar("34d26d5fc687a92669649f6988b8ce852006f604a82e154ef055c991bbb24e49@group.calendar.google.com")  # TODO Insert Your CalendarId here
+    calendar = GoogleCalendar("")  # TODO Insert Your CalendarId here
     # Returns events for next 2 days (might be adjusted)
     closest_events = calendar.events_list_simplified()[:3]
     return render(request, "core/home_base.html", context={"closest_events": closest_events})
